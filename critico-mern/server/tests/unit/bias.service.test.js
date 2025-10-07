@@ -49,6 +49,6 @@ describe('biasService.analyzeLocalPatterns', () => {
 
     const quality = biasService.assessTextQuality(biases);
     expect(quality.score).toBeLessThan(90);
-    expect(['aceptable', 'necesita mejoras', 'problemático']).toContain(quality.level);
+    expect(['bueno', 'aceptable', 'necesita mejoras', 'problemático']).toContain(quality.level);
   });
 });

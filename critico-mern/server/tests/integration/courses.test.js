@@ -132,8 +132,8 @@ describe('Learning flows', () => {
             timeSpentSeconds: 30
           }
         ]
-      })
-      .expect(201);
+      });
+    expect(response.status).toBe(201);
 
     expect(response.body.totalScore).toBe(1);
     expect(response.body.feedback[0].autoFeedback).toContain('Recuerda');
