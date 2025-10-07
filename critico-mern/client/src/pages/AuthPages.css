@@ -1,0 +1,17 @@
+.auth-info {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(123, 97, 255, 0.1);
+  color: var(--color-primary);
+  font-size: 0.9rem;
+}
+
+.auth-footer {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+.auth-footer a {
+  color: var(--color-primary);
+  font-weight: 600;
+}

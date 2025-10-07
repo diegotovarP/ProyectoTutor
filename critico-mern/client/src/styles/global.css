@@ -1,0 +1,66 @@
+:root {
+  --color-background: #f6f5fb;
+  --color-surface: #ffffff;
+  --color-surface-alt: #fdf8ff;
+  --color-sidebar: #080b1a;
+  --color-primary: #7b61ff;
+  --color-primary-dark: #5a3dff;
+  --color-secondary: #ff8ba7;
+  --color-text: #1a1d2e;
+  --color-text-light: #5a5c6b;
+  --color-border: rgba(16, 21, 64, 0.08);
+  --shadow-md: 0 24px 48px rgba(87, 77, 167, 0.12);
+  --shadow-sm: 0 12px 28px rgba(12, 11, 45, 0.08);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+  --font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background: linear-gradient(135deg, #ece9ff 0%, #fef6ff 100%);
+  color: var(--color-text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+input, select {
+  font-family: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(91, 81, 199, 0.25);
+  border-radius: 999px;
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}

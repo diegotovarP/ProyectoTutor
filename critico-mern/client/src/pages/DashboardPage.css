@@ -1,0 +1,258 @@
+.dashboard-grid {
+  display: grid;
+  gap: 32px;
+}
+
+.welcome-card {
+  background: linear-gradient(135deg, #7b61ff 0%, #5a3dff 60%, #ff8ba7 100%);
+  color: #ffffff;
+  padding: 36px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.welcome-card h1 {
+  margin: 0 0 12px;
+}
+
+.welcome-card p {
+  margin: 0;
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+.welcome-card-simple {
+  background: linear-gradient(135deg, #7b61ff 0%, #5a3dff 60%, #ff8ba7 100%);
+  color: #ffffff;
+  padding: 36px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.welcome-card-simple h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  color: var(--color-text);
+}
+
+.section-header a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.recommended {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.recommend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.recommend-card {
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  display: grid;
+  gap: 12px;
+  border: 1px solid rgba(123, 97, 255, 0.08);
+}
+
+.badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.level-beginner { background: rgba(123, 97, 255, 0.15); color: #5335ff; }
+.level-intermediate { background: rgba(255, 139, 167, 0.15); color: #ff5382; }
+.level-advanced { background: rgba(42, 201, 139, 0.15); color: #0c9d67; }
+
+.recommend-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.recommend-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-text-light);
+  font-size: 0.85rem;
+}
+
+.my-courses {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.course-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 18px;
+}
+
+.course-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-alt);
+}
+
+.course-item p {
+  margin: 6px 0 0;
+  color: var(--color-text-light);
+}
+
+.course-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+}
+
+.badge-warning {
+  background: rgba(255, 196, 0, 0.18);
+  color: #b57c00;
+}
+
+.error-text {
+  color: #c0392b;
+}
+
+.student-progress {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.student-progress h2 {
+  margin: 0 0 24px 0;
+  color: var(--color-text);
+}
+
+.progress-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.progress-card {
+  background: linear-gradient(135deg, #fff8e1 0%, #ffe0b2 100%);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  flex: 1;
+  min-width: 280px;
+}
+
+.progress-card h3 {
+  margin: 0 0 20px 0;
+  color: #1a1a1a;
+  font-size: 1.2rem;
+}
+
+.progress-stats {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: center;
+}
+
+.circular-progress {
+  position: relative;
+}
+
+.circular-progress svg {
+  transform: rotate(0deg);
+}
+
+.stats-grid {
+  flex: 1;
+  display: grid;
+  gap: 16px;
+}
+
+.stat-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 16px;
+  border-radius: var(--radius-md);
+}
+
+.stat-icon {
+  font-size: 2rem;
+}
+
+.stat-box strong {
+  display: block;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+}
+
+.stat-box p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.progress-badge {
+  background: #ffc107;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 960px) {
+  .welcome-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .course-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .progress-stats {
+    flex-direction: column;
+  }
+  .progress-cards {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,532 @@
+.students-management-page {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.error-message {
+  background: #fee;
+  color: #c33;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.empty-state p {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.course-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.course-card h3 {
+  font-size: 1.3rem;
+  color: #1a1a1a;
+  margin-bottom: 0.75rem;
+}
+
+.course-description {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.btn-view-students {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.btn-view-students:hover {
+  background: #5568d3;
+  transform: scale(1.02);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 650px;
+  max-height: 85vh;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-large {
+  max-width: 900px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 28px;
+  border-bottom: 1px solid rgba(35, 25, 75, 0.1);
+  flex-shrink: 0;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #666;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #1a1a1a;
+}
+
+.modal-body {
+  padding: 24px 28px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 28px;
+  border-top: 1px solid rgba(35, 25, 75, 0.1);
+  background: white;
+  flex-shrink: 0;
+}
+
+.empty-message {
+  text-align: center;
+  color: #999;
+  padding: 2rem;
+}
+
+.students-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.student-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.student-item:hover {
+  background: #e3f2fd;
+  transform: translateX(8px);
+}
+
+.student-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.student-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.student-info strong {
+  font-size: 1.1rem;
+  color: #1a1a1a;
+}
+
+.student-info span {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.student-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.progress-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #667eea;
+}
+
+.texts-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.text-item {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+.text-item.answered {
+  cursor: pointer;
+  border-left: 4px solid #4caf50;
+}
+
+.text-item.answered:hover {
+  background: #e8f5e9;
+  transform: translateX(8px);
+}
+
+.text-item.pending {
+  border-left: 4px solid #ff9800;
+  opacity: 0.7;
+}
+
+.text-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+}
+
+.text-header h4 {
+  margin: 0;
+  color: #1a1a1a;
+  flex: 1;
+}
+
+.status-badge {
+  padding: 0.3rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-badge.completed {
+  background: #4caf50;
+  color: white;
+}
+
+.status-badge.pending {
+  background: #ff9800;
+  color: white;
+}
+
+.text-item p {
+  margin: 0 0 0.5rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.click-hint {
+  color: #667eea;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.answers-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.answer-item {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border-left: 4px solid #667eea;
+}
+
+.question-section {
+  margin-bottom: 1rem;
+}
+
+.question-section h4 {
+  margin: 0 0 0.5rem 0;
+  color: #667eea;
+  font-size: 1.1rem;
+}
+
+.question-text {
+  color: #1a1a1a;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.answer-section {
+  margin-bottom: 1rem;
+}
+
+.answer-section h5 {
+  margin: 0 0 0.5rem 0;
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.student-answer {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  color: #1a1a1a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.feedback-section {
+  background: #e3f2fd;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.feedback-section h5 {
+  margin: 0 0 0.5rem 0;
+  color: #1976d2;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.feedback-text {
+  color: #1a1a1a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.btn-feedback {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.btn-feedback:hover {
+  background: #45a049;
+  transform: scale(1.02);
+}
+
+.feedback-question-section {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #667eea;
+}
+
+.feedback-question-section h4 {
+  margin: 0 0 0.75rem 0;
+  color: #667eea;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.feedback-question-text {
+  color: #1a1a1a;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 500;
+}
+
+.feedback-answer-section {
+  background: #fff3e0;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #ff9800;
+}
+
+.feedback-answer-section h4 {
+  margin: 0 0 0.75rem 0;
+  color: #f57c00;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.feedback-student-answer {
+  color: #1a1a1a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.feedback-input-section {
+  margin-top: 1.5rem;
+}
+
+.feedback-input-section h4 {
+  margin: 0 0 0.5rem 0;
+  color: #4caf50;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.feedback-instructions {
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.feedback-textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.2s;
+  min-height: 120px;
+}
+
+.feedback-textarea:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+.button-primary {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.button-primary:hover:not(:disabled) {
+  background: #5568d3;
+}
+
+.button-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button-secondary {
+  background: transparent;
+  color: #666;
+  border: 2px solid #e0e0e0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.button-secondary:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+@media (max-width: 768px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-overlay {
+    padding: 1rem;
+  }
+
+  .modal-content {
+    max-height: 90vh;
+  }
+}
