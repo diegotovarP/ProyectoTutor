@@ -1,0 +1,20 @@
+# Dockerfile para desarrollo del Backend (Node.js + Express) con HOT-RELOAD
+
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Instalar nodemon globalmente para hot-reload
+RUN npm install -g nodemon
+
+# Copiar package.json y package-lock.json
+COPY package*.json ./
+
+# Instalar todas las dependencias (incluyendo dev)
+RUN npm install
+
+# Exponer el puerto de la aplicación
+EXPOSE 4000
+
+# Comando para desarrollo con nodemon y configuración optimizada
+CMD ["nodemon", "--legacy-watch", "--watch", "src", "--ext", "js,json", "src/index.js"]
