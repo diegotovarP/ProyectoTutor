@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  # Backend Service (Development with hot-reload)
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    container_name: critico-backend-dev
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=development
+    env_file:
+      - ./server/.env
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    networks:
+      - tallerproyectos2_default
+
+  # Frontend Service (Development with hot-reload)
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    container_name: critico-frontend-dev
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:4000/api
+    depends_on:
+      - backend
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    networks:
+      - tallerproyectos2_default
+
+networks:
+  tallerproyectos2_default:
+    external: true

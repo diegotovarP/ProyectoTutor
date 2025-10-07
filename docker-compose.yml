@@ -1,0 +1,64 @@
+services:
+  backend:
+    build:
+      context: ./critico-mern/server
+    image: critico/backend:latest
+    container_name: critico-backend
+    restart: unless-stopped
+    # Load environment variables from the server .env file (runtime)
+    env_file:
+      - ./critico-mern/server/.env
+    depends_on:
+      mongo:
+        condition: service_healthy
+    ports:
+      - "4000:4000"
+
+  frontend:
+    build:
+      context: ./critico-mern/client
+    image: critico/frontend:latest
+    container_name: critico-frontend
+    restart: unless-stopped
+    # Load environment variables for runtime (useful if frontend reads runtime envs)
+    env_file:
+      - ./critico-mern/client/.env
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo:7.0
+    container_name: mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+      - ./init:/docker-entrypoint-initdb.d:ro  
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mongo-express:
+    image: mongo-express:1.0.2-18
+    container_name: mongo-express
+    restart: unless-stopped
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://root:root@mongo:27017/?authSource=admin
+      ME_CONFIG_BASICAUTH_USERNAME: admin     
+      ME_CONFIG_BASICAUTH_PASSWORD: admin
+    ports:
+      - "8081:8081"
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+volumes:
+  mongo_data:

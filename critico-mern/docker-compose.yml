@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  # Backend Service
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: critico-backend
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - ./server/.env
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    networks:
+      - tallerproyectos2_default
+
+  # Frontend Service
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: critico-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - tallerproyectos2_default
+
+networks:
+  tallerproyectos2_default:
+    external: true

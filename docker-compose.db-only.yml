@@ -1,0 +1,56 @@
+# ============================================
+# Docker Compose - SOLO BASE DE DATOS
+# MongoDB + Mongo Express
+# ============================================
+
+services:
+  # MongoDB Database
+  mongo:
+    image: mongo:7.0
+    container_name: critico-mongo-db
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: critico
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+      - ./init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - critico-network
+
+  # Mongo Express - Interfaz Web para MongoDB
+  mongo-express:
+    image: mongo-express:1.0.2-18
+    container_name: critico-mongo-express
+    restart: unless-stopped
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://root:root@mongo:27017/?authSource=admin
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: root
+    ports:
+      - "8081:8081"
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - critico-network
+
+# Volumen persistente para datos de MongoDB
+volumes:
+  mongo_data:
+    driver: local
+
+# Red para comunicación entre servicios
+networks:
+  critico-network:
+    driver: bridge

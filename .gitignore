@@ -1,0 +1,279 @@
+# ============================================
+# .gitignore para CRÍTICO MERN
+# Proyecto: TallerProyectos2
+# Stack: MongoDB, Express, React, Node.js
+# ============================================
+
+# ============================================
+# Node.js
+# ============================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+.nyc_output/
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# ============================================
+# Environment Variables (IMPORTANTE)
+# ============================================
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+.env.staging
+
+# Archivos de configuración con secretos
+config/secrets.js
+config/local.js
+
+# ============================================
+# MongoDB / Databases
+# ============================================
+*.db
+*.sqlite
+*.sqlite3
+data/
+db/
+mongo-data/
+dump/
+
+# ============================================
+# Docker
+# ============================================
+# Mantener docker-compose.yml pero ignorar overrides locales
+docker-compose.override.yml
+.docker/
+
+# Volúmenes de Docker (si no están en docker-compose)
+volumes/
+
+# ============================================
+# React / Vite (Frontend)
+# ============================================
+# Directorio de build
+critico-mern/client/dist/
+critico-mern/client/build/
+
+# Cache de Vite
+critico-mern/client/.vite/
+critico-mern/client/vite.config.js.timestamp-*
+
+# Cache de React
+critico-mern/client/.cache/
+
+# ============================================
+# Sistema Operativo
+# ============================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ============================================
+# IDEs / Editores
+# ============================================
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# WebStorm
+.idea/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+Sessionx.vim
+.netrwhist
+*~
+tags
+[._]*.un~
+
+# ============================================
+# Testing
+# ============================================
+# Jest
+coverage/
+.jest-cache/
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+
+# ============================================
+# Build / Dist
+# ============================================
+dist/
+dist-ssr/
+build/
+out/
+
+# ============================================
+# Archivos temporales
+# ============================================
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.orig
+*.rej
+*~
+
+# ============================================
+# Certificados SSL / Llaves
+# ============================================
+*.pem
+*.key
+*.crt
+*.cert
+*.p12
+*.pfx
+
+# ============================================
+# Archivos grandes / Media
+# ============================================
+# Ignorar archivos muy grandes que no deban estar en git
+*.mp4
+*.avi
+*.mov
+*.zip
+*.tar.gz
+*.rar
+
+# ============================================
+# Uploads de usuarios (si los hay)
+# ============================================
+uploads/
+public/uploads/
+critico-mern/server/uploads/
+critico-mern/client/public/uploads/
+
+# ============================================
+# Documentación generada
+# ============================================
+docs/api/
+docs/_build/
+
+# ============================================
+# Misceláneos del proyecto
+# ============================================
+# Scripts de prueba locales
+test-*.js
+test-*.sh
+*.local.*
+
+# Archivos de respaldo
+backup/
+*.backup
+
+# Carpeta de inicialización (puede contener datos sensibles)
+# Comentar esta línea si necesitas versionar scripts de init
+# init/
+
+# ============================================
+# MANTENER ESTOS ARCHIVOS (importantes)
+# ============================================
+# Asegúrate de NO ignorar estos archivos importantes:
+# - docker-compose.yml (archivo principal)
+# - package.json
+# - README.md
+# - Documentación (.md)
+# - Dockerfiles
+
+# ============================================
+# Fin del .gitignore
+# ============================================
